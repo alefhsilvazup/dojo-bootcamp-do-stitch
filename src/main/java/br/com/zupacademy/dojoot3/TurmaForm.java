@@ -1,5 +1,7 @@
 package br.com.zupacademy.dojoot3;
 
+import br.com.zupacademy.dojoot3.entity.Turma;
+
 import java.time.LocalDateTime;
 
 public class TurmaForm {
@@ -23,5 +25,9 @@ public class TurmaForm {
 
     public LocalDateTime getTerminaEm() {
         return terminaEm;
+    }
+
+    public Turma converter(){
+        return new Turma (nome, iniciaEm, terminaEm);
     }
 }

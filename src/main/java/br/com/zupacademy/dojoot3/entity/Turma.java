@@ -12,6 +12,8 @@ public class Turma {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String nome;
+
     private LocalDateTime dataDeInicio;
 
     private LocalDateTime dataDeFinalizado;
@@ -22,9 +24,19 @@ public class Turma {
     public Turma() {
     }
 
-    public Turma(Long id, LocalDateTime dataDeInicio, LocalDateTime dataDeFinalizado) {
-        this.id = id;
+    public Turma(String nome, LocalDateTime dataDeInicio, LocalDateTime dataDeFinalizado) {
+
+        this.nome = nome;
         this.dataDeInicio = dataDeInicio;
         this.dataDeFinalizado = dataDeFinalizado;
+    }
+
+    @Override
+    public String toString() {
+        return "Turma{" +
+                "id=" + id +
+                ", dataDeInicio=" + dataDeInicio +
+                ", dataDeFinalizado=" + dataDeFinalizado +
+                '}';
     }
 }

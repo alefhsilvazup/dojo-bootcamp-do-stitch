@@ -1,13 +1,13 @@
 package br.com.zupacademy.dojoot3.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import br.com.zupacademy.dojoot3.TurmaForm;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/turmas")
 public class TurmaController {
-    void cadastrarTurma() {
-
+    @PostMapping
+    public String cadastrarTurma(@RequestBody TurmaForm form) {
+        
     }
 }
