@@ -1,5 +1,6 @@
 package br.com.zupacademy.dojoot3.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,9 +12,10 @@ public class Turma {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
+    @Column(unique=true,nullable=false)
     private String nome;
-
+    
     private LocalDateTime dataDeInicio;
 
     private LocalDateTime dataDeFinalizado;
