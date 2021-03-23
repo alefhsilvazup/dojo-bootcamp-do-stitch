@@ -18,7 +18,7 @@ public class TurmaController {
     private TurmaRepository turmaRepository;
 
     @PostMapping
-    public ResponseEntity<TurmaForm> cadastrarTurma(@RequestBody TurmaForm form) {
+    public ResponseEntity<TurmaResponseForm> cadastrarTurma(@RequestBody TurmaForm form) {
         Turma turma = form.converter();
         turma = turmaRepository.save(turma);
         TurmaResponseForm response = new TurmaResponseForm(turma);
