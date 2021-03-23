@@ -1,4 +1,4 @@
-package br.com.zupacademy.dojoot3;
+package br.com.zupacademy.dojoot3.form;
 
 import br.com.zupacademy.dojoot3.entity.Turma;
 

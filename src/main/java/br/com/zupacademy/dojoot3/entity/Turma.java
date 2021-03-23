@@ -31,6 +31,22 @@ public class Turma {
         this.dataDeFinalizado = dataDeFinalizado;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public LocalDateTime getDataDeInicio() {
+        return dataDeInicio;
+    }
+
+    public LocalDateTime getDataDeFinalizado() {
+        return dataDeFinalizado;
+    }
+
     @Override
     public String toString() {
         return "Turma{" +
