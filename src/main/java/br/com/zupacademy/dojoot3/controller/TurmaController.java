@@ -5,6 +5,7 @@ import br.com.zupacademy.dojoot3.form.TurmaForm;
 import br.com.zupacademy.dojoot3.form.TurmaResponseForm;
 import br.com.zupacademy.dojoot3.repository.TurmaRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +26,12 @@ public class TurmaController {
     }
 
     @PostMapping
-    public ResponseEntity<TurmaResponseForm> cadastrarTurma(@RequestBody @Valid TurmaForm form) {
+    public ResponseEntity<?> cadastrarTurma(@RequestBody @Valid TurmaForm form, BindingResult result) {
+
+        if(result.hasErrors()) {
+            return ResponseEntity.badRequest().body(result.getFieldErrors());
+        }
+
         Turma turma = form.converter();
         turma = turmaRepository.save(turma);
         TurmaResponseForm response = new TurmaResponseForm(turma);
