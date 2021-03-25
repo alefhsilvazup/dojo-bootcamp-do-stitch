@@ -1,24 +1,31 @@
 package br.com.zupacademy.dojoot3.controller;
 
-import br.com.zupacademy.dojoot3.form.TurmaForm;
 import br.com.zupacademy.dojoot3.entity.Turma;
+import br.com.zupacademy.dojoot3.form.TurmaForm;
 import br.com.zupacademy.dojoot3.form.TurmaResponseForm;
 import br.com.zupacademy.dojoot3.repository.TurmaRepository;
-import java.net.URI;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import javax.validation.Valid;
+import java.net.URI;
 
 @RestController
 @RequestMapping("/turmas")
 public class TurmaController {
 
-    @Autowired
     private TurmaRepository turmaRepository;
 
+    public TurmaController(TurmaRepository turmaRepository) {
+        this.turmaRepository = turmaRepository;
+    }
+
     @PostMapping
-    public ResponseEntity<TurmaResponseForm> cadastrarTurma(@RequestBody TurmaForm form) {
+    public ResponseEntity<TurmaResponseForm> cadastrarTurma(@RequestBody @Valid TurmaForm form) {
         Turma turma = form.converter();
         turma = turmaRepository.save(turma);
         TurmaResponseForm response = new TurmaResponseForm(turma);
