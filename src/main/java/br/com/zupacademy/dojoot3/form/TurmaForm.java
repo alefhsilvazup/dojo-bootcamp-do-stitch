@@ -1,6 +1,7 @@
 package br.com.zupacademy.dojoot3.form;
 
 import br.com.zupacademy.dojoot3.entity.Turma;
+import br.com.zupacademy.dojoot3.validator.ValorUnico.ValorUnico;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -10,7 +11,7 @@ import java.time.LocalDate;
 public class TurmaForm {
 	@Size(max=50)
 	@NotBlank
-    //@ValorUnico
+    @ValorUnico
     private String nome;
 	@NotNull
     private LocalDate iniciaEm;

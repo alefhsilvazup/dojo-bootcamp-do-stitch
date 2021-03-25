@@ -1,13 +1,18 @@
 package br.com.zupacademy.dojoot3.validator.ValorUnico;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import javax.validation.Constraint;
+import javax.validation.Payload;
+import java.lang.annotation.*;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
+@Constraint(validatedBy = ValorUnicoValidator.class)
+@Documented
 public @interface ValorUnico {
     String mensagem ()default"O campo está duplicado";
-    //Class<?>
+    Class<?>[] groups() default {};
+    Class<? extends Payload>[] payload() default {};
+
+    String campo();
+    Class<?> classe();
 }
