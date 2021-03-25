@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,9 +17,9 @@ public class Turma {
     @Column(unique=true,nullable=false)
     private String nome;
     
-    private LocalDateTime dataDeInicio;
+    private LocalDate dataDeInicio;
 
-    private LocalDateTime dataDeFinalizado;
+    private LocalDate dataDeFinalizado;
 
     /**
      * @deprecated Hibernate only
@@ -26,7 +27,7 @@ public class Turma {
     public Turma() {
     }
 
-    public Turma(String nome, LocalDateTime dataDeInicio, LocalDateTime dataDeFinalizado) {
+    public Turma(String nome, LocalDate dataDeInicio, LocalDate dataDeFinalizado) {
 
         this.nome = nome;
         this.dataDeInicio = dataDeInicio;
@@ -41,11 +42,11 @@ public class Turma {
         return nome;
     }
 
-    public LocalDateTime getDataDeInicio() {
+    public LocalDate getDataDeInicio() {
         return dataDeInicio;
     }
 
-    public LocalDateTime getDataDeFinalizado() {
+    public LocalDate getDataDeFinalizado() {
         return dataDeFinalizado;
     }
 

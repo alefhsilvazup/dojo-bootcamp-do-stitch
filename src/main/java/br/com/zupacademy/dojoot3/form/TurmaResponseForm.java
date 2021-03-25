@@ -2,17 +2,18 @@ package br.com.zupacademy.dojoot3.form;
 
 import br.com.zupacademy.dojoot3.entity.Turma;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class TurmaResponseForm {
     private Long id;
-    private LocalDateTime inicio;
-    private LocalDateTime termino;
+    private LocalDate inicio;
+    private LocalDate termino;
 
     public TurmaResponseForm() {
     }
 
-    public TurmaResponseForm(Long id, LocalDateTime inicio, LocalDateTime termino) {
+    public TurmaResponseForm(Long id, LocalDate inicio, LocalDate termino) {
         this.id = id;
         this.inicio = inicio;
         this.termino = termino;
@@ -28,11 +29,11 @@ public class TurmaResponseForm {
         return id;
     }
 
-    public LocalDateTime getInicio() {
+    public LocalDate getInicio() {
         return inicio;
     }
 
-    public LocalDateTime getTermino() {
+    public LocalDate getTermino() {
         return termino;
     }
 }

@@ -1,7 +1,9 @@
 package br.com.zupacademy.dojoot3.form;
 
 import br.com.zupacademy.dojoot3.entity.Turma;
+import br.com.zupacademy.dojoot3.validator.ValorUnico.ValorUnico;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.validation.constraints.NotEmpty;
@@ -12,15 +14,16 @@ public class TurmaForm {
 	@Size(max=50)
 	@NotEmpty
 	@NotNull
+    //@ValorUnico
     private String nome;
 	@NotEmpty
 	@NotNull
-    private LocalDateTime iniciaEm;
+    private LocalDate iniciaEm;
 	@NotEmpty
 	@NotNull
-    private LocalDateTime terminaEm;
+    private LocalDate terminaEm;
 
-    public TurmaForm(String nome, LocalDateTime iniciaEm, LocalDateTime terminaEm) {
+    public TurmaForm(String nome, LocalDate iniciaEm, LocalDate terminaEm) {
         this.nome = nome;
         this.iniciaEm = iniciaEm;
         this.terminaEm = terminaEm;
@@ -30,11 +33,11 @@ public class TurmaForm {
         return nome;
     }
 
-    public LocalDateTime getIniciaEm() {
+    public LocalDate getIniciaEm() {
         return iniciaEm;
     }
 
-    public LocalDateTime getTerminaEm() {
+    public LocalDate getTerminaEm() {
         return terminaEm;
     }
 
