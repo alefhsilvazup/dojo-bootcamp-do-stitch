@@ -11,9 +11,10 @@ import java.time.LocalDate;
 public class TurmaForm {
 	@Size(max=50)
 	@NotBlank
-    @ValorUnico
+    @ValorUnico(classe = Turma.class, campo = "nome")
     private String nome;
 	@NotNull
+    @ValorUnico(classe = Turma.class, campo = "dataDeInicio")
     private LocalDate iniciaEm;
 	@NotNull
     private LocalDate terminaEm;

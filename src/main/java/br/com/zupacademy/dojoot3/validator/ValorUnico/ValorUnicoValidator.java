@@ -1,19 +1,18 @@
 package br.com.zupacademy.dojoot3.validator.ValorUnico;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.management.Query;
+import javax.persistence.Query;
+import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.lang.annotation.Annotation;
+import java.util.List;
 
 public class ValorUnicoValidator implements ConstraintValidator<ValorUnico, Object> {
     private String campo;
     private Class<?> classe;
 
     @PersistenceContext
-    
+    private EntityManager entityManager;
 
     @Override
     public void initialize(ValorUnico constraintAnnotation) {
@@ -23,7 +22,12 @@ public class ValorUnicoValidator implements ConstraintValidator<ValorUnico, Obje
 
     @Override
     public boolean isValid(Object o, ConstraintValidatorContext constraintValidatorContext) {
-        Query query =
-        return false;
+    	
+        Query query = entityManager.createQuery("SELECT 1 FROM " + classe.getName() + 
+        		"WHERE " + campo + " = :value").setParameter("value", o);
+        
+        List<?> list = query.getResultList();
+        
+        return list.isEmpty();
     }
 }
